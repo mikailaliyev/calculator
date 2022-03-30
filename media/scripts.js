@@ -10,7 +10,14 @@ const el = (htmlElement) => {
 //Changing colors of clicked buttons
 el(".ops").forEach(i => {
    i.addEventListener("click", () => {
-       i.style.border = "3px solid green"
+       if(['/','X','-','+'].includes(i.innerText)) {
+           i.style.border = "3px solid red"
+       }
+       if(i.innerText === "=") {
+        el(".ops").forEach(i => {
+            i.style.border = null
+        })
+       }
     })
 })
 
