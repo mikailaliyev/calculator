@@ -53,6 +53,8 @@ main {
     border: 2px solid gray;
     font-size: 5rem;
     text-align: right;
+    overflow: hidden;
+    padding: 2%;
 }
 
 .multiply {

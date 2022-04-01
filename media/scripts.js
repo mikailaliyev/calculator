@@ -11,26 +11,28 @@ const el = (htmlElement) => {
 el(".ops").forEach((i) => {
   i.addEventListener("click", () => {
     //Operations to screen
-    if (!["/", "X", "-", "+", "=", "C", "<", "%"].includes(i.innerText)) {
+    if (!["C", "<", "+/-", "="].includes(i.innerText)) {
       el("#screen").innerText += i.innerText;
     }
-    //Changing border color of math operators NOT WORKING YET!
-    if (["/", "X", "-", "+", "=", "C", "<", "%"].includes(i.innerText)) {
-      //Preventing operators to be shown more than once
-      ["/", "X", "-", "+", "=", "C", "<", "%"].includes(el("#screen").innerText.slice(-1))
+
+    //Preventing operators to be shown more than once
+    if (["/", "X", "-", "+", "%"].includes(i.innerText)) {
+      ["/", "X", "-", "+", "%"].includes(el("#screen").innerText.slice(-1))
         ? el("#screen").innerText
         : (el("#screen").innerText += i.innerText);
-
-      //   if (!i.style.border) i.style.border = "3px solid red";
-      //
     }
 
-    //Equal does things
-    if (i.innerText === "=") {
-      el(".ops").forEach((i) => {
-        i.style.border = null;
-      });
+    //Clean screen
+    if (i.innerText === "C") {
       el("#screen").innerText = "";
+    }
+
+    //Delete last character
+    if (i.innerText === "<") {
+      el("#screen").innerText = el("#screen").innerText.substr(
+        0,
+        el("#screen").innerText.length - 1
+      );
     }
   });
 });
