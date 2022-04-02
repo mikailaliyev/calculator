@@ -1,3 +1,4 @@
+
 //Neat DOM elements picking
 const el = (htmlElement) => {
   if (htmlElement.charAt(0) === "#") {
@@ -7,32 +8,20 @@ const el = (htmlElement) => {
   }
 };
 
-//Changing colors of clicked buttons
-el(".ops").forEach((i) => {
-  i.addEventListener("click", () => {
-    //Operations to screen
-    if (!["C", "<", "+/-", "="].includes(i.innerText)) {
-      el("#screen").innerText += i.innerText;
-    }
+let screen = el("#screen")
+let numbers = el(".nums")
+let operators = el(".ops")
+let newNumber
+let oldNumber
+let result
 
-    //Preventing operators to be shown more than once
-    if (["/", "X", "-", "+", "%"].includes(i.innerText)) {
-      ["/", "X", "-", "+", "%"].includes(el("#screen").innerText.slice(-1))
-        ? el("#screen").innerText
-        : (el("#screen").innerText += i.innerText);
-    }
+const alertThis = (e) => {newNumber = parseFloat(e); console.log(newNumber); alert(newNumber)}
+const alertThat = () => alert('ko')
 
-    //Clean screen
-    if (i.innerText === "C") {
-      el("#screen").innerText = "";
-    }
+for(let i = 0; i < numbers.length; i++) {
+  numbers[i].onclick = () => alertThis(numbers[i].textContent)
+}
 
-    //Delete last character
-    if (i.innerText === "<") {
-      el("#screen").innerText = el("#screen").innerText.substr(
-        0,
-        el("#screen").innerText.length - 1
-      );
-    }
-  });
-});
+for(let i = 0; i < operators.length; i++) {
+  operators[i].onclick = () => alertThat(operators[i].textContent)
+}
