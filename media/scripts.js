@@ -7,26 +7,73 @@ const el = (htmlElement) => {
   }
 };
 
+//Setting up variables
 let screen = el("#screen");
 let numbers = el(".nums");
 let operators = el(".ops");
-let newNumber;
+let newNumber = "";
 let oldNumber;
 let operator;
 let result;
 
-const alertThis = (e) => {
-  newNumber = parseFloat(e);
-};
-const alertThat = (e) => {
-  operator = e;
-  console.log(operator);
+//Functions to handle values
+const getNumber = (e) => {
+  if (result) {
+    newNumber = "";
+    oldNumber = "";
+    screen.innerText = "";
+  }
+
+  screen.innerText += e;
+  newNumber += e;
+  console.log(newNumber);
 };
 
+const getOperator = (e) => {
+  operator = e;
+  console.log(operator);
+  oldNumber = newNumber = parseFloat(newNumber);
+  newNumber = "";
+
+  if (operator === "C") {
+    newNumber = "";
+    oldNumber = "";
+    screen.innerText = "";
+  }
+};
+
+const equal = () => {
+  newNumber = parseFloat(newNumber);
+  switch (operator) {
+    case "/":
+      result = oldNumber / newNumber;
+      screen.innerText = result;
+      break;
+    case "X":
+      result = oldNumber * newNumber;
+      screen.innerText = result;
+      break;
+    case "-":
+      result = oldNumber - newNumber;
+      screen.innerText = result;
+      break;
+    case "+":
+      result = oldNumber + newNumber;
+      screen.innerText = result;
+      break;
+    default:
+      console.log(``);
+  }
+};
+
+//Cycling through array of values of buttons to get values
 for (let i = 0; i < numbers.length; i++) {
-  numbers[i].onclick = () => alertThis(numbers[i].textContent);
+  numbers[i].onclick = () => getNumber(numbers[i].textContent);
 }
 
 for (let i = 0; i < operators.length; i++) {
-  operators[i].onclick = () => alertThat(operators[i].textContent);
+  operators[i].onclick = () => getOperator(operators[i].textContent);
+  if (operators[i].innerText === "=") {
+    operators[i].onclick = () => equal();
+  }
 }
