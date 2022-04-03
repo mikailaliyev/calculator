@@ -12,57 +12,39 @@ let screen = el("#screen");
 let numbers = el(".nums");
 let operators = el(".ops");
 let newNumber = "";
-let oldNumber;
+let oldNumber = 0;
 let operator;
 let result;
 
-//Functions to handle values
 const getNumber = (e) => {
-  if (result) {
+  if (newNumber) {
     newNumber = "";
-    oldNumber = "";
+  }
+  if (screen.innerText === operator) {
     screen.innerText = "";
   }
-
-  screen.innerText += e;
   newNumber += e;
-  console.log(newNumber);
+  screen.innerText += newNumber;
+  console.log(`New number is: ${newNumber}`);
 };
 
 const getOperator = (e) => {
   operator = e;
-  console.log(operator);
-  oldNumber = newNumber = parseFloat(newNumber);
-  newNumber = "";
-
-  if (operator === "C") {
-    newNumber = "";
-    oldNumber = "";
-    screen.innerText = "";
+  if (oldNumber) {
+    oldNumber = result;
+  } else {
+    oldNumber = parseFloat(newNumber);
   }
-};
 
-const equal = () => {
-  newNumber = parseFloat(newNumber);
+  screen.innerText = operator;
+  console.log(`Old number is: ${oldNumber}`);
   switch (operator) {
     case "/":
       result = oldNumber / newNumber;
+      break;
+    case "=":
       screen.innerText = result;
       break;
-    case "X":
-      result = oldNumber * newNumber;
-      screen.innerText = result;
-      break;
-    case "-":
-      result = oldNumber - newNumber;
-      screen.innerText = result;
-      break;
-    case "+":
-      result = oldNumber + newNumber;
-      screen.innerText = result;
-      break;
-    default:
-      console.log(``);
   }
 };
 
@@ -73,7 +55,4 @@ for (let i = 0; i < numbers.length; i++) {
 
 for (let i = 0; i < operators.length; i++) {
   operators[i].onclick = () => getOperator(operators[i].textContent);
-  if (operators[i].innerText === "=") {
-    operators[i].onclick = () => equal();
-  }
 }
