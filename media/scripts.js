@@ -78,6 +78,11 @@ const changeDigitSign = () => {
   console.log(newNumber);
 };
 
+const percent = () => {
+  result = (parseFloat(newNumber) * oldNumber) / 100;
+  screen.innerText = result;
+};
+
 //Cycling through array of values of buttons to get values
 for (let i = 0; i < numbers.length; i++) {
   numbers[i].onclick = () => getNumber(numbers[i].textContent);
@@ -96,5 +101,8 @@ for (let i = 0; i < operators.length; i++) {
   }
   if (operators[i].innerText === "+/-") {
     operators[i].onclick = () => changeDigitSign(operators[i].textContent);
+  }
+  if (operators[i].innerText === "%") {
+    operators[i].onclick = () => percent(operators[i].textContent);
   }
 }
