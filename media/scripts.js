@@ -15,7 +15,6 @@ let newNumber = "";
 let oldNumber = 0;
 let operator;
 let result;
-let count = 0;
 
 //Getting digits from buttons
 const getNumber = (e) => {
@@ -32,7 +31,7 @@ const getOperator = (e) => {
   if (!oldNumber) {
     oldNumber = newNumber = parseFloat(newNumber);
     newNumber = "";
-    screen.textContent = "";
+    screen.innerText = "";
   }
   screen.innerText = operator;
   newNumber = "";
@@ -54,6 +53,7 @@ const equal = () => {
       result = oldNumber + parseFloat(newNumber);
       break;
   }
+
   oldNumber = result;
   screen.innerText = oldNumber;
   newNumber = "";
@@ -64,7 +64,6 @@ const reset = () => {
   oldNumber = "";
   newNumber = "";
   screen.innerText = "";
-  count = 0;
 };
 
 const fixLastDigit = () => {
