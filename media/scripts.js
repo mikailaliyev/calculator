@@ -110,3 +110,22 @@ for (let i = 0; i < operators.length; i++) {
     operators[i].onclick = () => percent(operators[i].textContent);
   }
 }
+
+window.addEventListener("keydown", event => {
+  if(['1','2','3','4','5','6','7','8','9','0'].includes(event.key)){
+    getNumber(event.key)}
+
+    if(['%', '/', 'X', '-', '+'].includes(event.key)) {
+      getOperator(event.key)
+    }
+    if(['Enter'].includes(event.key)) {
+      equal(event.key)
+    }
+    if(['Delete'].includes(event.key)) {
+      reset(event.key)
+    }
+  }
+
+
+
+)
