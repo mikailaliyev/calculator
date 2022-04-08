@@ -108,7 +108,6 @@ window.addEventListener("keydown", (event) => {
   if (["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"].includes(event.key)) {
     getNumber(event.key);
   }
-
   if (["%", "/", "*", "X", "-", "+"].includes(event.key)) {
     getOperator(event.key);
   }
@@ -117,5 +116,11 @@ window.addEventListener("keydown", (event) => {
   }
   if (["Delete"].includes(event.key)) {
     reset(event.key);
+  }
+  if (["ArrowLeft"].includes(event.key)) {
+    fixLastDigit(event.key);
+  }
+  if (["ArrowUp"].includes(event.key)) {
+    changeDigitSign(event.key);
   }
 });
