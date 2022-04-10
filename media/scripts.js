@@ -66,12 +66,21 @@ const reset = () => {
 };
 //Fixing last number both on screen and in memory
 const fixLastDigit = () => {
-  newNumber = newNumber.substring(0, newNumber.length - 1);
-  screen.innerText = screen.innerText.slice(0, screen.innerText.length - 1);
+  if (!newNumber) {
+    console.log(newNumber);
+    oldNumber = parseFloat(
+      String(result).substring(0, String(result).length - 1)
+    );
+    screen.innerText = screen.innerText.slice(0, screen.innerText.length - 1);
+  } else {
+    newNumber = String(newNumber).substring(0, String(newNumber).length - 1);
+    screen.innerText = screen.innerText.slice(0, screen.innerText.length - 1);
+  }
 };
 //Changing numbers sing (positive or negative) both on screen and memory
 const changeDigitSign = () => {
   newNumber = -newNumber;
+  console.log(typeof newNumber);
   screen.innerText = newNumber;
   if (oldNumber) {
     oldNumber = -oldNumber;
