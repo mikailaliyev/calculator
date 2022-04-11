@@ -20,7 +20,6 @@ const getNumber = (e) => {
     screen.innerText = "";
   }
   screen.innerText = newNumber += e;
-  console.log(`New number is: ${newNumber}`);
 };
 //Getting math operators from buttons
 const getOperator = (e) => {
@@ -67,7 +66,6 @@ const reset = () => {
 //Fixing last number both on screen and in memory
 const fixLastDigit = () => {
   if (!newNumber) {
-    console.log(newNumber);
     oldNumber = parseFloat(
       String(result).substring(0, String(result).length - 1)
     );
@@ -80,13 +78,11 @@ const fixLastDigit = () => {
 //Changing numbers sing (positive or negative) both on screen and memory
 const changeDigitSign = () => {
   newNumber = -newNumber;
-  console.log(typeof newNumber);
   screen.innerText = newNumber;
   if (oldNumber) {
     oldNumber = -oldNumber;
     screen.innerText = oldNumber;
   }
-  console.log(newNumber);
 };
 //Working with percents
 const percent = () => {
