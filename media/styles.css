@@ -72,7 +72,11 @@ main {
 }
 
 /*Operators' color*/
-
+.ops {
+  color: rgb(247, 103, 0);
+  background-color: rgb(255, 255, 255);
+}
 .equal {
   background-color: rgb(247, 103, 0);
+  color: white;
 }
