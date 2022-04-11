@@ -70,3 +70,9 @@ main {
 .multiply {
   font-size: 2rem;
 }
+
+/*Operators' color*/
+
+.equal {
+  background-color: rgb(247, 103, 0);
+}
