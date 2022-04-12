@@ -61,7 +61,7 @@ const reset = () => {
   result = 0;
   oldNumber = "";
   newNumber = "";
-  screen.innerText = "";
+  screen.innerText = "0";
 };
 //Fixing last number both on screen and in memory
 const fixLastDigit = () => {
