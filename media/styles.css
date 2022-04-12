@@ -18,6 +18,7 @@ main {
 
 /*CALCULATOR*/
 #calculator-form {
+  background-color: teal;
   border: 2px solid gray;
   border-radius: 5px;
   padding: 1%;
