@@ -34,27 +34,32 @@ const getOperator = (e) => {
 };
 //Getting result with equal button
 const equal = () => {
-  result = 0; //To show zero when the equal button clicked right after page load
-  switch (operator) {
-    case "/":
-      result = oldNumber / parseFloat(newNumber);
-      break;
-    case "X":
-      result = oldNumber * parseFloat(newNumber);
-      break;
-    case "*":
-      result = oldNumber * parseFloat(newNumber);
-      break;
-    case "-":
-      result = oldNumber - parseFloat(newNumber);
-      break;
-    case "+":
-      result = oldNumber + parseFloat(newNumber);
-      break;
+  if (!newNumber && !oldNumber) {
+    result = 0;
+    screen.innerText = result;
+  } else {
+    result = 0; //To show zero when the equal button clicked right after page load
+    switch (operator) {
+      case "/":
+        result = oldNumber / parseFloat(newNumber);
+        break;
+      case "X":
+        result = oldNumber * parseFloat(newNumber);
+        break;
+      case "*":
+        result = oldNumber * parseFloat(newNumber);
+        break;
+      case "-":
+        result = oldNumber - parseFloat(newNumber);
+        break;
+      case "+":
+        result = oldNumber + parseFloat(newNumber);
+        break;
+    }
+    oldNumber = result;
+    screen.innerText = oldNumber;
+    newNumber = "";
   }
-  oldNumber = result;
-  screen.innerText = oldNumber;
-  newNumber = "";
 };
 //Resetting result, oldNumber, newNumber, and cleaning the sreen
 const reset = () => {
