@@ -42,6 +42,8 @@ main {
   box-sizing: border-box;
   font-size: 3rem;
   height: auto;
+  color: rgb(247, 103, 0);
+  background-color: rgb(255, 255, 255);
 }
 
 .nums {
@@ -52,6 +54,7 @@ main {
   box-sizing: border-box;
   font-size: 3rem;
   height: auto;
+  background-color: white;
 }
 
 /*SCREEN*/
@@ -71,11 +74,6 @@ main {
   font-size: 2rem;
 }
 
-/*Operators' color*/
-.ops {
-  color: rgb(247, 103, 0);
-  background-color: rgb(255, 255, 255);
-}
 .equal {
   background-color: rgb(247, 103, 0);
   color: white;
