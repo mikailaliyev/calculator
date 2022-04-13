@@ -77,5 +77,6 @@ main {
 
 .equal {
   background-color: rgb(247, 103, 0);
+  border-color: rgb(247, 103, 0);
   color: white;
 }
