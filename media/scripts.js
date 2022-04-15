@@ -138,4 +138,7 @@ document.addEventListener("keydown", (event) => {
   if (["ArrowUp"].includes(event.key)) {
     changeDigitSign(event.key);
   }
+  if (["ArrowDown"].includes(event.key)) {
+    percent(event.key);
+  }
 });
