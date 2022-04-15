@@ -132,7 +132,7 @@ document.addEventListener("keydown", (event) => {
   if (["Delete"].includes(event.key)) {
     reset(event.key);
   }
-  if (["ArrowLeft"].includes(event.key)) {
+  if (["ArrowRight"].includes(event.key)) {
     fixLastDigit(event.key);
   }
   if (["ArrowUp"].includes(event.key)) {
