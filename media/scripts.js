@@ -123,6 +123,7 @@ document.addEventListener("keydown", (event) => {
     getNumber(event.key);
   }
   if (["%", "/", "*", "X", "-", "+"].includes(event.key)) {
+    event.preventDefault();
     getOperator(event.key);
   }
   if (["Enter"].includes(event.key)) {
