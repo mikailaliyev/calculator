@@ -34,8 +34,10 @@ const getOperator = (e) => {
 };
 //Getting result with equal button
 const equal = () => {
-  if (!newNumber && !oldNumber) {
+  if (!operator) {
     result = 0;
+    oldNumber = 0;
+    newNumber = "";
     screen.innerText = result;
   } else {
     result = 0; //To show zero when the equal button clicked right after page load
@@ -59,6 +61,7 @@ const equal = () => {
     oldNumber = result;
     screen.innerText = oldNumber;
     newNumber = "";
+    operator = "";
   }
 };
 //Resetting result, oldNumber, newNumber, and cleaning the sreen
@@ -93,6 +96,7 @@ const changeDigitSign = () => {
 const percent = () => {
   result = (parseFloat(newNumber) * oldNumber) / 100;
   screen.innerText = result;
+  oldNumber = 0
 };
 //Cycling through array of values of buttons to get values
 for (let i = 0; i < numbers.length; i++) {
