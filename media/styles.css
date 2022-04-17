@@ -53,17 +53,18 @@ main {
 }
 
 .tooltip-text {
-  font-size: 2rem;
+  font-size: 1rem;
   visibility: hidden;
   width: max-content;
-  background-color: rgba(0, 0, 0, 0.515);
+  background-color: rgba(0, 0, 0, 0.596);
   color: #fff;
   text-align: center;
   border-radius: 6px;
   padding: 5px 5px;
   position: absolute;
   z-index: 1;
-  right: 40%;
+  right: 50%;
+  bottom: 70%;
 }
 
 .tooltip:hover .tooltip-text {
