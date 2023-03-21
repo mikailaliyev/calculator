@@ -6,6 +6,7 @@ const el = (htmlElement) => {
     return Array.from(document.querySelectorAll(htmlElement));
   }
 };
+
 //Setting up variables
 let screen = el("#screen");
 let numbers = el(".nums");
@@ -14,6 +15,7 @@ let newNumber = "";
 let oldNumber = 0;
 let operator;
 let result;
+
 //Getting digits from buttons
 const getNumber = (e) => {
   if (screen.innerText === operator) {
@@ -21,6 +23,7 @@ const getNumber = (e) => {
   }
   screen.innerText = newNumber += e;
 };
+
 //Getting math operators from buttons
 const getOperator = (e) => {
   operator = e;
@@ -32,6 +35,7 @@ const getOperator = (e) => {
   screen.innerText = operator;
   newNumber = "";
 };
+
 //Getting result with equal button
 const equal = () => {
   if (!operator) {
@@ -64,6 +68,7 @@ const equal = () => {
     operator = "";
   }
 };
+
 //Resetting result, oldNumber, newNumber, and cleaning the sreen
 const reset = () => {
   result = 0;
@@ -71,6 +76,7 @@ const reset = () => {
   newNumber = "";
   screen.innerText = "0";
 };
+
 //Fixing last number both on screen and in memory
 const fixLastDigit = () => {
   if (!newNumber) {
@@ -83,6 +89,7 @@ const fixLastDigit = () => {
     screen.innerText = screen.innerText.slice(0, screen.innerText.length - 1);
   }
 };
+
 //Changing numbers sing (positive or negative) both on screen and memory
 const changeDigitSign = () => {
   newNumber = -newNumber;
@@ -92,16 +99,19 @@ const changeDigitSign = () => {
     screen.innerText = oldNumber;
   }
 };
+
 //Working with percents
 const percent = () => {
   result = (parseFloat(newNumber) * oldNumber) / 100;
   screen.innerText = result;
-  oldNumber = 0
+  oldNumber = 0;
 };
+
 //Cycling through array of values of buttons to get values
 for (let i = 0; i < numbers.length; i++) {
   numbers[i].onclick = () => getNumber(numbers[i].textContent);
 }
+
 //Cycling through array of values of buttons to get values for operators
 for (let i = 0; i < operators.length; i++) {
   operators[i].onclick = () => getOperator(operators[i].textContent);
