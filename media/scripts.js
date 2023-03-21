@@ -18,10 +18,8 @@ let result;
 
 //Getting digits from buttons
 const getNumber = (e) => {
-  if (screen.innerText === operator) {
-    screen.innerText = "";
-  }
-  screen.innerText = newNumber += e;
+  newNumber += e;
+  screen.innerText += newNumber;
 };
 
 //Getting math operators from buttons
@@ -30,21 +28,18 @@ const getOperator = (e) => {
   if (!oldNumber) {
     oldNumber = newNumber = parseFloat(newNumber);
     newNumber = "";
-    screen.innerText = "";
   }
   screen.innerText = operator;
-  newNumber = "";
 };
 
 //Getting result with equal button
 const equal = () => {
   if (!operator) {
-    result = 0;
-    oldNumber = 0;
+    oldNumber = result;
     newNumber = "";
     screen.innerText = result;
   } else {
-    result = 0; //To show zero when the equal button clicked right after page load
+    result = 0; //erasing result before calculations
     switch (operator) {
       case "/":
         result = oldNumber / parseFloat(newNumber);
@@ -72,8 +67,9 @@ const equal = () => {
 //Resetting result, oldNumber, newNumber, and cleaning the sreen
 const reset = () => {
   result = 0;
-  oldNumber = "";
+  oldNumber = 0;
   newNumber = "";
+  operator = "";
   screen.innerText = "0";
 };
 
@@ -109,26 +105,47 @@ const percent = () => {
 
 //Cycling through array of values of buttons to get values
 for (let i = 0; i < numbers.length; i++) {
-  numbers[i].onclick = () => getNumber(numbers[i].textContent);
+  numbers[i].onclick = () => {
+    getNumber(numbers[i].textContent);
+    numbers[i].blur();
+  };
 }
 
 //Cycling through array of values of buttons to get values for operators
 for (let i = 0; i < operators.length; i++) {
-  operators[i].onclick = () => getOperator(operators[i].textContent);
+  operators[i].onclick = () => {
+    getOperator(operators[i].textContent);
+    operators[i].blur();
+  };
   if (operators[i].innerText === "=") {
-    operators[i].onclick = () => equal(operators[i].textContent);
+    operators[i].onclick = () => {
+      equal(operators[i].textContent);
+      operators[i].blur();
+    };
   }
   if (operators[i].innerText === "C") {
-    operators[i].onclick = () => reset(operators[i].textContent);
+    operators[i].onclick = () => {
+      reset(operators[i].textContent);
+      operators[i].blur();
+    };
   }
   if (operators[i].innerText === "<") {
-    operators[i].onclick = () => fixLastDigit(operators[i].textContent);
+    operators[i].onclick = () => {
+      fixLastDigit(operators[i].textContent);
+      operators[i].blur();
+    };
   }
   if (operators[i].innerText === "+/-") {
-    operators[i].onclick = () => changeDigitSign(operators[i].textContent);
+    operators[i].onclick = () => {
+      changeDigitSign(operators[i].textContent);
+      operators[i].blur();
+    };
   }
   if (operators[i].innerText === "%") {
-    operators[i].onclick = () => percent(operators[i].textContent);
+    operators[i].onclick = () => {
+      percent(operators[i].textContent);
+      operators[i].blur();
+    };
   }
 }
 
