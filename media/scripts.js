@@ -34,7 +34,9 @@ const getOperator = (e) => {
 
 //Getting result with equal button
 const equal = () => {
-  if (!operator) {
+  if (!oldNumber) {
+    screen.innerText = "0";
+  } else if (!operator) {
     oldNumber = result;
     newNumber = "";
     screen.innerText = result;
