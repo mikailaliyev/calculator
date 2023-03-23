@@ -18,8 +18,10 @@ let result;
 
 //Getting digits from buttons
 const getNumber = (e) => {
-  if(!operator) {
-    reset()
+  if (!operator) {
+    result = 0;
+    oldNumber = 0;
+    operator = "";
   }
   newNumber += e;
   screen.innerText += newNumber;
@@ -28,6 +30,9 @@ const getNumber = (e) => {
 //Getting math operators from buttons
 const getOperator = (e) => {
   operator = e;
+  if (newNumber && oldNumber) {
+    equal();
+  }
   if (!oldNumber) {
     oldNumber = newNumber = parseFloat(newNumber);
     newNumber = "";
