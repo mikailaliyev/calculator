@@ -18,6 +18,9 @@ let result;
 
 //Getting digits from buttons
 const getNumber = (e) => {
+  if(!operator) {
+    reset()
+  }
   newNumber += e;
   screen.innerText += newNumber;
 };
