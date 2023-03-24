@@ -18,6 +18,9 @@ let result;
 
 //Getting digits from buttons
 const getNumber = (e) => {
+  if (screen.value.length >= 8) {
+    return;
+  }
   //if just type numbers then previous result will be erased to avoid miscalculations
   if (!operator) {
     result = 0;
@@ -68,6 +71,9 @@ const equal = () => {
       case "+":
         result = oldNumber + parseFloat(newNumber);
         break;
+    }
+    if (screen.value.length >= 8) {
+      result = String(result).slice(0, 8);
     }
     oldNumber = result;
     screen.innerText = oldNumber;
@@ -196,6 +202,6 @@ document.addEventListener("keydown", (event) => {
   if (["."].includes(event.key)) {
     // newNumber += event.key
     // screen.innerText += event.key;
-    getNumber(event.key)
+    getNumber(event.key);
   }
 });
