@@ -18,6 +18,7 @@ let result;
 
 //Getting digits from buttons
 const getNumber = (e) => {
+  //if just type numbers then previous result will be erased to avoid miscalculations
   if (!operator) {
     result = 0;
     oldNumber = 0;
@@ -68,9 +69,10 @@ const equal = () => {
         break;
     }
     oldNumber = result;
+    result = ""
     screen.innerText = oldNumber;
     newNumber = "";
-    operator = "";
+    // operator = "";
   }
 };
 
