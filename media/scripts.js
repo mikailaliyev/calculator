@@ -46,10 +46,10 @@ const getOperator = (e) => {
 const equal = () => {
   if (!oldNumber) {
     screen.innerText = "0";
-  } else if (!operator) {
-    oldNumber = result;
+  } else if (!operator && !newNumber) {
+    if (result) oldNumber = result;
     newNumber = "";
-    screen.innerText = result;
+    screen.innerText = oldNumber;
   } else {
     result = 0; //erasing result before calculations
     switch (operator) {
@@ -70,8 +70,8 @@ const equal = () => {
         break;
     }
     oldNumber = result;
-    result = "";
     screen.innerText = oldNumber;
+    result = "";
     newNumber = "";
     operator = "";
   }
