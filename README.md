@@ -1,6 +1,6 @@
 # Calculator
 
-A simple calculator for sequence of operations where the math operators' precedence doesn't matter so you can do your calculations on a row.
+A simple calculator for sequence of operations where the math operators' precedence doesn't matter so you can do your calculations in a row.
 
 
 ###Tasks
