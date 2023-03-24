@@ -162,6 +162,12 @@ for (let i = 0; i < operators.length; i++) {
       operators[i].blur();
     };
   }
+  if (operators[i].innerText === ".") {
+    operators[i].onclick = () => {
+      getNumber(operators[i].textContent);
+      operators[i].blur();
+    };
+  }
 }
 
 document.addEventListener("keydown", (event) => {
@@ -187,8 +193,9 @@ document.addEventListener("keydown", (event) => {
   if (["ArrowDown"].includes(event.key)) {
     percent(event.key);
   }
+  if (["."].includes(event.key)) {
+    // newNumber += event.key
+    // screen.innerText += event.key;
+    getNumber(event.key)
+  }
 });
-
-document.onchange = () => {
-  console.log(screen.innerText.length);
-};
