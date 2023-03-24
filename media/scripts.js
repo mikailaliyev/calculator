@@ -33,6 +33,7 @@ const getOperator = (e) => {
   operator = e;
   if (newNumber && oldNumber) {
     equal();
+    operator = e;
   }
   if (!oldNumber) {
     oldNumber = newNumber = parseFloat(newNumber);
@@ -69,10 +70,10 @@ const equal = () => {
         break;
     }
     oldNumber = result;
-    result = ""
+    result = "";
     screen.innerText = oldNumber;
     newNumber = "";
-    // operator = "";
+    operator = "";
   }
 };
 
