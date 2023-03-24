@@ -3,7 +3,7 @@
 A simple calculator for sequence of operations where the math operators' precedence doesn't matter so you can do your calculations in a row.
 
 
-###Tasks
+### Tasks
 
 - [x] <del> Add an option for sequence of operations
 - [x] <del> Add favicon
