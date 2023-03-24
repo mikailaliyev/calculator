@@ -46,6 +46,7 @@ main {
   overflow: hidden;
   padding: 2%;
   resize: none;
+  color: black;
 }
 
 .ops {

@@ -188,3 +188,7 @@ document.addEventListener("keydown", (event) => {
     percent(event.key);
   }
 });
+
+document.onchange = () => {
+  console.log(screen.innerText.length);
+};
