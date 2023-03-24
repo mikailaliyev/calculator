@@ -51,7 +51,7 @@ const equal = () => {
     newNumber = "";
     screen.innerText = oldNumber;
   } else {
-    result = 0; //erasing result before calculations
+    result = ""; //erasing result before calculations
     switch (operator) {
       case "/":
         result = oldNumber / parseFloat(newNumber);
@@ -101,8 +101,10 @@ const fixLastDigit = () => {
 
 //Changing numbers sing (positive or negative) both on screen and memory
 const changeDigitSign = () => {
-  newNumber = -newNumber;
-  screen.innerText = newNumber;
+  if (newNumber) {
+    newNumber = -newNumber;
+    screen.innerText = newNumber;
+  }
   if (oldNumber) {
     oldNumber = -oldNumber;
     screen.innerText = oldNumber;
