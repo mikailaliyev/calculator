@@ -104,3 +104,27 @@ main {
   border-color: rgb(247, 103, 0);
   color: white;
 }
+
+@media (max-width: 780px) {
+  /*CALCULATOR*/
+  #calculator-form {
+    border: 2px solid gray;
+    border-radius: 5px;
+    padding: 1.5%;
+    aspect-ratio: 2/2.8;
+    width: 90%;
+  }
+
+  /*SCREEN*/
+  #screen {
+    padding: 2%;
+    resize: none;
+    color: black;
+  }
+
+  .equal {
+    background-color: rgb(247, 103, 0);
+    border-color: rgb(247, 103, 0);
+    color: white;
+  }
+}
