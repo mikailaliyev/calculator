@@ -5,12 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./media/styles.css" />
+    <link rel="icon" type="image/png" href="./media/images/favicon.png" />
     <title>Calculator</title>
   </head>
   <body>
     <main>
       <div id="calculator-form">
-        <button id="screen"></button>
+        <textarea disabled="yes" readonly id="screen"></textarea>
         <button class="delete ops tooltip">
           C<span class="tooltip-text">"DEL" KEY</span>
         </button>
@@ -33,7 +34,9 @@
         <button class="two nums">2</button>
         <button class="one nums">1</button>
         <button class="plus ops">+</button>
-        <button class="plus-minus ops tooltip">+/-<span class="tooltip-text">"ARRUP" KEY</span></button>
+        <button class="plus-minus ops tooltip">
+          +/-<span class="tooltip-text">"ARRUP" KEY</span>
+        </button>
         <button class="zero nums">0</button>
         <button class="dot ops">.</button>
         <button class="equal ops">=</button>

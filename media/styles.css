@@ -24,7 +24,6 @@ main {
   padding: 1%;
   aspect-ratio: 2/2.8;
   width: 30%;
-  /* height: 80%; */
   box-sizing: border-box;
   display: grid;
   grid-template-areas:
@@ -34,6 +33,20 @@ main {
   box-sizing: border-box;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1.8fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+/*SCREEN*/
+#screen {
+  grid-area: screen;
+  background: white;
+  border-radius: 4px;
+  border: 2px solid gray;
+  font-size: 5rem;
+  text-align: right;
+  overflow: hidden;
+  padding: 2%;
+  resize: none;
+  color: black;
 }
 
 .ops {
@@ -82,19 +95,6 @@ main {
   background-color: white;
 }
 
-/*SCREEN*/
-#screen {
-  grid-area: screen;
-  height: 100%;
-  background: white;
-  border-radius: 4px;
-  border: 2px solid gray;
-  font-size: 5rem;
-  text-align: right;
-  overflow: hidden;
-  padding: 2%;
-}
-
 .multiply {
   font-size: 2rem;
 }
@@ -103,4 +103,28 @@ main {
   background-color: rgb(247, 103, 0);
   border-color: rgb(247, 103, 0);
   color: white;
+}
+
+@media (max-width: 780px) {
+  /*CALCULATOR*/
+  #calculator-form {
+    border: 2px solid gray;
+    border-radius: 5px;
+    padding: 1.5%;
+    aspect-ratio: 2/2.8;
+    width: 90%;
+  }
+
+  /*SCREEN*/
+  #screen {
+    padding: 2%;
+    resize: none;
+    color: black;
+  }
+
+  .equal {
+    background-color: rgb(247, 103, 0);
+    border-color: rgb(247, 103, 0);
+    color: white;
+  }
 }
