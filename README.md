@@ -7,7 +7,7 @@ A simple calculator for sequence of operations where the math operators' precede
 
 - [x] <del> Add an option for sequence of operations
 - [x] <del> Add favicon
-- [ ]  Add responsive design for mobile devices
+- [x]  <del> Add responsive design for mobile devices
 - [x]  <del> Add limits to digits length on the screen
 
 &nbsp;
